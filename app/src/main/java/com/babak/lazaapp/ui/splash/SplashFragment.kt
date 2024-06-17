@@ -1,5 +1,6 @@
 package com.babak.lazaapp.ui.splash
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -18,9 +19,23 @@ class SplashFragment : BaseFragment<FragmentSplashBinding>(FragmentSplashBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         lifecycleScope.launch {
-            delay(3000)
-            findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            val isAuth = getAuth()
+            if (isAuth) {
+                delay(3000)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHomeFragment())
+            } else {
+                delay(3000)
+                findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToLoginFragment())
+            }
+
         }
+    }
+
+    private fun getAuth(): Boolean {
+        val sp = requireActivity().getSharedPreferences("ecommerce_local", Context.MODE_PRIVATE)
+        return sp.getBoolean("isAuth", false)
+
     }
 }
