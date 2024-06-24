@@ -10,4 +10,9 @@
     <string name="term_condition">By connecting your account confirm that you agree with our Term and Condition</string>
     <string name="register_heading">Sign Up</string>
     <string name="already">Already have an Account?</string>
+    <string name="hello">Hello</string>
+    <string name="welcome_to_laza">Welcome to Laza.</string>
+    <string name="choose_brand">Choose Brand</string>
+    <string name="view_all">View All</string>
+    <string name="new_arraival">New Arraival</string>
 </resources>
